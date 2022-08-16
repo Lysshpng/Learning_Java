@@ -10,6 +10,7 @@ README.md文件的格式规范 [Reference](https://blog.csdn.net/qq_37493425/art
 .gitignore文件
 > 用于指明忽略一些没必要的文件(夹)
 > [Reference](https://blog.csdn.net/nyist_zxp/article/details/119887324)
+> [gitignore文件不起效](https://www.jianshu.com/p/23920337b6da) 
 
 git commit规范 [Reference](https://www.jianshu.com/p/851ec9cd1709)  
 |   value       |   desp    |
