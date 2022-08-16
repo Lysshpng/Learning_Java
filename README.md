@@ -1,7 +1,7 @@
 # Learning_Java
 Write down by Lysshpng.
 
-
+## 22.08.16 学习《Java编程思想》
 
 
 ## 22.08.15 git相关知识
