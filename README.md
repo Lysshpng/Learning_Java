@@ -1,15 +1,18 @@
 # Learning_Java
 Write down by Lysshpng.
 
-## 22.08.16 学习《Java编程思想》
-
+## ~22.08.19 学习《Java编程思想》
+> [学习笔记](src/main/java/LearningNotes0819.java)
+> 1. ~《Java编程思想》第x章
+> 2. 网上的java基础教程
+> 3. if-else, switch-case, for, while, logical operation,
 
 ## 22.08.15 git相关知识
 README.md文件的格式规范 [Reference](https://blog.csdn.net/qq_37493425/article/details/102556009)
 
 .gitignore文件
 > 用于指明忽略一些没必要的文件(夹)
-> [Reference](https://blog.csdn.net/nyist_zxp/article/details/119887324)
+> [Reference](https://blog.csdn.net/nyist_zxp/article/details/119887324)  
 > [gitignore文件不起效](https://www.jianshu.com/p/23920337b6da) 
 
 git commit规范 [Reference](https://www.jianshu.com/p/851ec9cd1709)  
