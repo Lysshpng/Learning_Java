@@ -7,14 +7,19 @@
 import java.util.*;
 
 /** Notes:
- * 类：类是一个模板，它描述一类对象的行为和状态。
- * 对象：对象是类的一个实例，有状态和行为。
- * 方法：方法就是行为，一个类可以有很多方法。
-
+ * 类：类是一个模板，它描述一类对象的行为和状态
+ * 对象：对象是类的一个实例，有状态和行为
+ * 方法：方法就是行为，一个类可以有很多方法
  * public static void main = 访问修饰符 + 关键字 + 返回类型 + 方法名
  * 访问修饰符 = [public, private, protected, default]
  * static 允许直接通过 classname.x 的方式访问static的变量/方法
- * 输入用Scanner
+ *          从static方法内部 ← 调用 →x 非static方法
+ *          static初始化只在必要时启用
+ * 输入是Scanner
+ * 类的自动初始化，构建器名与类名一致
+ * overload: 名字相同，传入参数不同
+ * this: 只能在方法内部使用，“这个对象/当前对象”
+ * 垃圾收集 ！= 破坏；对象可能不会被当作垃圾收掉； 垃圾收集只跟内存有关；
  */
 
 class AClass{
@@ -23,6 +28,16 @@ class AClass{
     }
 
     public static int i = 3;
+
+    static void method(int i, String s){
+        System.out.println("original method");
+    }
+
+    static void method(String s, int i){
+        System.out.println("overload method");
+    }
+
+
 }
 
 public class LearningNotes0819 {
