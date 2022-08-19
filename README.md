@@ -3,7 +3,7 @@ Write down by Lysshpng.
 
 ## ~22.08.19 学习《Java编程思想》
 > [学习笔记](src/main/java/LearningNotes0819.java)
-> 1. ~《Java编程思想》第x章
+> 1. ~《Java编程思想》第4章
 > 2. 网上的java基础教程
 > 3. if-else, switch-case, for, while, logical operation,
 
