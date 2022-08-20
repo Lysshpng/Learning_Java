@@ -1,11 +1,15 @@
 # Learning_Java
 Write down by Lysshpng.
 
+## 22.08.20 小任务
+Task: 写一个方法，入参数有两个，一个是数字最大值，一个是操作类型(如5，\*)，返回值要是5\*4\*3\*2\*1，操作类型这个参数可以为加[\+, \-, \*, \/]
+已完成，详见[代码文件](src/main/java/LearningNotes0820.java)
+
 ## ~22.08.19 学习《Java编程思想》
 > [学习笔记](src/main/java/LearningNotes0819.java)
 > 1. ~《Java编程思想》第4章
 > 2. 网上的java基础教程
-> 3. if-else, switch-case, for, while, logical operation,
+> 3. if-else, switch-case, for, while, logical operation
 
 ## 22.08.15 git相关知识
 README.md文件的格式规范 [Reference](https://blog.csdn.net/qq_37493425/article/details/102556009)
