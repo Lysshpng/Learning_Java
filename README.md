@@ -1,6 +1,29 @@
 # Learning_Java
 Write down by Lysshpng.
 
+## ~22.08.27
+[代码笔记](src/main/java/LearningNotes0827.java)  
+
+Q: Java创建对象的方式有哪些?!
+> Java创建对象的四种方式：[Reference 1](https://www.cnblogs.com/yanchuanbin/p/14742892.html), [Reference 2](https://blog.csdn.net/weixin_48882711/article/details/124072469)  
+> &emsp; (1) new创建新对象：通过new对应的类的构造器来创建，这种方式是Java中最通用的;  
+> &emsp; (2) 通过反射机制;  
+> &emsp; (3) 采用clone机制：必须提前实现cloneable接口并实现clone方法;  
+> &emsp; (4) 反序列化：对Class必须要实现Serializable接口;  
+> &emsp; 其中clone和反序列化方法是没有调用构造方法的。
+
+Q: 什么是构造方法(耦合)?!
+> 构造方法也叫做构造器，是一种特殊的方法，用于创建实例（即对象）时进行初始化操作。  
+> 在没有手动定义构造方法的时候，系统会为操作类提供的一个无参数的默认的构造方法。
+
+Q: 怎么统一在调用对象的方法之前、之后做一些自定义的事，比如日志打印、事务管理(aop,动态代理)?!
+> (1) 定义一个方法/框架，将需要统一在调用方法之前和之后执行的自定义的内容定义好，中间的部分可以动态地调整为调用的方法。  
+> (2) 使用装饰模式：[Reference](https://baike.baidu.com/item/%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/10158540)  
+> &emsp; (a) 装饰模式是在不必改变原类文件和使用继承的情况下，动态地扩展一个对象的功能;  
+> &emsp; (b) 装饰对象包含一个真实对象的引用(reference);   
+> &emsp; (c) 装饰对象可以在转发这些请求以前或以后增加一些附加功能。  
+> &emsp; 这样就确保了在运行时，不用修改给定对象的结构就可以在外部增加附加的功能。
+
 ## 22.08.20 小任务
 Task: 写一个方法，入参数有两个，一个是数字最大值，一个是操作类型(如5，\*)，返回值要是5\*4\*3\*2\*1，操作类型这个参数可以为[\+, \-, \*, \/]  
 已完成，详见[代码文件](src/main/java/LearningNotes0820.java)
