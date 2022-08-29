@@ -22,18 +22,18 @@ import java.util.*;
  * 垃圾收集 ！= 破坏；对象可能不会被当作垃圾收掉； 垃圾收集只跟内存有关；
  */
 
-class AClass{
-    AClass(){
+class AClass {
+    AClass() {
         System.out.println("initializing a new AClass object ..");
     }
 
     public static int i = 3;
 
-    static void method(int i, String s){
+    static void method(int i, String s) {
         System.out.println("original method");
     }
 
-    static void method(String s, int i){
+    static void method(String s, int i) {
         System.out.println("overload method");
     }
 
@@ -42,7 +42,7 @@ class AClass{
 
 public class LearningNotes0819 {
 
-    public static void if_(int a, int b){
+    public static void if_(int a, int b) {
         System.out.println("====================");
         System.out.println("excuting method if_(" + a + ", " + b + ") ..");
         if(a > b){
@@ -55,7 +55,7 @@ public class LearningNotes0819 {
         }
     }
 
-    public static void switch_(char c){
+    public static void switch_(char c) {
         System.out.println("====================");
         System.out.println("excuting method switch_(" + c + ") ..");
         switch (c) {
@@ -82,7 +82,7 @@ public class LearningNotes0819 {
         */
     }
 
-    public static void for_(int n){
+    public static void for_(int n) {
         System.out.println("====================");
         System.out.println("excuting method for_(" + n + ") ..");
         for(int i = 1; i <= n; i++){
@@ -91,16 +91,16 @@ public class LearningNotes0819 {
         }
     }
 
-    public static void while_(int start, int end){
+    public static void while_(int start, int end) {
         System.out.println("====================");
         System.out.println("excuting method while_(" + start + ", " + end + ") ..");
-        while(start <= end){
+        while(start <= end) {
             System.out.println(start);
             start ++;
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         // if-else and while
         int a = 4, b = 13;
@@ -132,8 +132,6 @@ public class LearningNotes0819 {
         // 输出方法二
         System.out.println("output a static value of a class, way 2:");
         System.out.println(AClass.i);
-
-
 
     }
 
