@@ -1,11 +1,55 @@
 # Learning_Java
 Write down by Lysshpng.
 
+**TODO List**
+- [ ] 编写servlet, filter
 
+[//]: # (https://www.runoob.com/servlet/servlet-environment-setup.html)
+
+- [ ] 搭建一个springmvc工程
+
+[//]: # (https://blog.csdn.net/wodeID123/article/details/124910315)
+[//]: # (https://www.cnblogs.com/cfas/p/16168634.html)
+[//]: # (https://blog.csdn.net/friggly/article/details/123888590)
+
+## ~22.09.30
+
+
+## ~22.09.25
+
+
+## ~22.09.18
+1. IOC [Reference](https://blog.csdn.net/ivan820819/article/details/79744797)
+> (1) IOC(Inversion of Control, 控制反转), 借助于"第三方"(IOC容器)实现具有依赖关系的对象之间的解耦;  
+> (2) 原本对象A想要操作对象B是要自己创建B, 现在是由IOC容器在A需要的时候给个B它; 所以原本A要主动创建B, 现在变成被动得到一个B, so控制反转了;  
+> (3) 所有对象的控制权全部上交给IOC容器, IOC容器成为系统的核心; IOC中最基本的技术就是“反射(Reflection)”编程;  
+> (4) IOC vs DI(Dependency Injection, 依赖注入), 由IOC容器在运行期间动态地将某种依赖关系注入到对象之中, 是另一个角度的IOC。
+
+2. Spring IOC  [Ref 1](https://blog.csdn.net/q982151756/article/details/80291998), [Ref 2](https://blog.csdn.net/weixin_51738541/article/details/120607811)
+> (1) Spring IOC是Spring框架中的IOC容器;  
+> (2) Spring的IoC容器在实现IOC和DI的过程中,可以划分为两个阶段: 容器启动阶段和Bean实例化阶段;  
+> (3) 在IoC模式中，被注入对象可以通过三种方式来通知IoC容器为其提供适当服务: 构造方法注入, setter方法注入, 接口注入(几乎退役);  
+> (4) Spring中提供了两种IoC容器: BeanFactory, ApplicationContext; 其中BeanFactory是ApplicationContext的父类, 因此ApplicationContext的功能更强大;  
+> (5) 需要通过某种方法告诉IOC容器关于对象依赖的信息, 容器才能合理的创造出对象, 有四种方式: 文本文件, XML文件, 代码, 注解。
+
+## ~22.09.11
+1. Spring AOP [Reference](https://blog.csdn.net/q982151756/article/details/80513340)
+> (1) AOP(Aspect Oriented Programming), 面向切面编程;  
+> (2) 编程中, 对象与对象之间, 方法与方法之间, 模块与模块之间都是一个个切面;  
+> (3) 让接口只需要关心具体的业务，而不需要关注其他非该接口关注的逻辑或处理;  
+> (4) 参考Ref中的理解概念: **Aspect**(切面), **Joint point**(连接点), **Pointcut**(切点), **Advice**(增强), **Target**(目标对象), **WeavingWeaving**(织入);  
+> (5) AOP中的Joint point有多种类型: 构造方法调用、字段的设置和获取、方法的调用、方法的执行、异常的处理执行、类的初始化, 但在**Spring中只支持方法执行类型的Joint point**, 通过**动态代理和动态字节码技术**来实现了AOP。
+
+2. 动态代理 [Reference](https://blog.csdn.net/q982151756/article/details/80586894)
+> (1) 动态代理其实是Java中的一个方法, 这个方法可以实现: 动态创建一组指定的接口的实现对象(在运行时，创建实现了指定的一组接口的对象);  
+> (2) 动态代理(Proxy)类中创建代理对象的方法的三个参数:  
+> &emsp; &emsp; ClassLoader loader: 方法需要动态生成一个类, 这个类实现了A和B两个接口; 这个类也需要加载到方法区中, 所以我们需要一个ClassLoader来加载该类;  
+> &emsp; &emsp; Class<?>[] interfaces: 需要代理对象实现的数组;  
+> &emsp; &emsp; InvocationHandler h: 调用处理器; 代理对象实现的所有接口中的方法, 内容都是调用InvocationHandler中的invoke()方法, 代理对象方法的返回值其实就是invoke方法的返回值;  
+> (3) 示例代码阅读。
 
 ## ~22.09.03
 1. Java的继承以及继承类的构造方法关系 [代码笔记](src/main/java/LearningNotes0831.java)
-
 
 2. Java的三大特性：[Reference](https://blog.csdn.net/slw213106/article/details/121696908)
 > **封装、继承、多态** 
@@ -47,16 +91,15 @@ Write down by Lysshpng.
 >       对Servlet容器传给Web资源的request对象和response对象进行检查和修改;  
 > &emsp; Filter的生命周期分为3个阶段: 初始化阶段, 拦截和过滤阶段和销毁阶段,
 >       分别对应了由Servlet容器来管理的init(), doFilter()以及destroy()三个方法;  
-> (3) 编码实现 **TODO**
+> (3) 编码实现 --**TODO**--
 
 6. 搭建一个springmvc工程
 > SpringMVC是Spring生态圈中的WEB-MVC框架;  
-> **TODO**
+> 搭建 --**TODO**--
 
 7. 了解springboot的概念 [Reference](https://blog.csdn.net/friggly/article/details/123888590)
 > (1) SpringBoot提供了一种快速使用Spring的方式, 目的是为了简化Spring项目的搭设和开发过程、提高开发效率, 本质是Spring + 其他框架;  
 > (2) 四大特性: 自动配置、起步依赖、Actuator、命令行界面。
-
 
 ## ~22.08.27
 [代码笔记](src/main/java/LearningNotes0827.java)  
@@ -118,18 +161,17 @@ git commit规范 [Reference](https://www.jianshu.com/p/851ec9cd1709)
 Push to GitHub - done
 
 ## 22.08.11 环境配置
-
 JDK:
 > [安装参考教程](https://blog.csdn.net/dkm123456/article/details/121172392)
 
 jre:
-> [安装参考教程](https://blog.csdn.net/weixin_45729500/article/details/110509807?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-110509807-blog-121886511.pc_relevant_multi_platform_whitelistv3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-110509807-blog-121886511.pc_relevant_multi_platform_whitelistv3&utm_relevant_index=1)
+> [安装参考教程](https://blog.csdn.net/weixin_45729500/article/details/110509807)
 
 缺了tools.jar & dt.jar: 
 > 忽略，好像是新的一些版本都抛弃了？！
 
 “java不是..”：
-> [解决方法](https://blog.csdn.net/qq_40645764/article/details/108561684?spm=1001.2101.3001.6650.17&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-17-108561684-blog-90906516.pc_relevant_multi_platform_whitelistv3&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-17-108561684-blog-90906516.pc_relevant_multi_platform_whitelistv3) 环境变量路径问题（相对 / 绝对）
+> [解决方法](https://blog.csdn.net/qq_40645764/article/details/108561684) 环境变量路径问题（相对 / 绝对）
 
 Maven：
 > [安装 Ref1](https://blog.csdn.net/weixin_46078600/article/details/124918297)  
