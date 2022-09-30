@@ -16,7 +16,30 @@ Write down by Lysshpng.
 
 
 ## ~22.09.25
+1. Collection [Reference](https://blog.csdn.net/qq_42404261/article/details/104863292)
+> (1) java.util.Collection是一个集合接口, 提供了对集合对象进行基本操作的通用接口方法;  
+> (2) 直接继承接口为List和Set:  
+> &emsp; &emsp; a) List, 有序可重复, 维护特定的顺序, 能够精确的控制每个元素插入的位置, 可使用索引访问List中的元素; 常用实现类有**ArrayList，LinkedList，Vector**;  
+> &emsp; &emsp; b) Set, 无序不可重复, 只能通过游标来取值; 常用有实现类**HashSet**和子接口**SortedSet**。
 
+1.1 ArrayList vs LinkedList vs Vector
+> (1) ArrayList底层是数组; 适合查询(O(1))，不适合频繁的随机增删元素; 非线程安全;  
+> (2) LinkedList底层数据结构是双向链表, 适合频繁的增删元素, 不适合查询(O(n)); 非线程安全;  
+> (3) Vector底层是数组; Stack类继承自Vector类, 线程安全。
+
+1.2 HashSet和SortedSet
+> (1) 为快速查找设计的Set; HashSet底层是HashMap, HashMap底层采用哈希表数据结构;  
+> (2) SortedSet存入的元素可以按照元素大小顺序自动排列。
+
+2. Map [Reference](https://www.cnblogs.com/htyj/p/7723887.html)
+> (1) Map提供一个更通用的元素存储方法, 用于存储元素对(key-value), 即key到value的映射, 通过key查找value;  
+> (2) 存放值的时候通过put存放，如果key值相等的话会把之前存放的值覆盖;  
+> (3) 实现类主要包括：**HashMap,TreeMap,Hashtable**等。
+
+2.1 HashMap vs TreeMap vs Hashtable
+> (1) HashMap, 根据key的HashCode值存储数据, 根据key可直接获取Value, 具有很快的访问速度; HashMap最多只允许一条记录的key值为Null(多条会覆盖) & 允许多条记录的Value为 Null;  
+> (2) TreeMap, 把保存的记录根据key排序(默认升序); 当用Iterator遍历TreeMap, 得到的记录是排过序的; TreeMap不允许key的值为null;  
+> (3) Hashtable, 与HashMap类似, 但key和value均不允许为Null; 支持线程的同步，即任一时刻只有一个线程能写Hashtable, 因此也导致Hashtable在写入时会比较慢。
 
 ## ~22.09.18
 1. IOC [Reference](https://blog.csdn.net/ivan820819/article/details/79744797)
