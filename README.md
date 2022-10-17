@@ -12,10 +12,41 @@ Write down by Lysshpng.
 [//]: # (https://www.cnblogs.com/cfas/p/16168634.html)
 [//]: # (https://blog.csdn.net/friggly/article/details/123888590)
 
-## ~22.09.30
+## ～22.10.13
+[代码笔记](src/main/java/LearningNotes1013.java)
+1. Iterator
+> (1) Iterator, 迭代器, 是一种用于访问集合的方法, 可用于迭代ArrayList, HashSet等集合;  
+> (2) it的基本操作有it.next(), it.hasNext()和it.remove();  
+> (3) it的操作是全局的, 每次需要从头开始的操作时要重新获取一个it。
 
+2. Exception
+> (1) 异常是程序中的一些错误, 但并不是所有的错误都是异常, 并且错误有时候是可以避免的;  
+> (2) 异常发生的原因通常有几类: 用户输入非法数据, 文件不存在, 网络通信问题; 有的是用户错误引起, 有的是程序错误引起, 还有因为物理错误引起的;  
+> (3) 异常的类型: 检查性异常, 运行时异常, 错误(错误不是异常, 是脱离了程序员控制的问题);  
+> (4) 使用try/catch可以捕获异常, try/catch里的代码为保护代码; 一个try后面跟多个catch的为多重捕获;  
+> (5) throws关键字用来声明一个异常, 放在方法签名的尾部; 也可以在方法内部使用throw抛出异常;  
+> (6) finally用来创建在try后面执行的代码, 无论是否发生异常，finally的代码总会被执行, 因此可以运行清理类型等收尾善后性质的语句。
+
+## ~22.09.30
+[代码笔记](src/main/java/LearningNotes0930.java)
+1. Number
+> (1) 一般地, 在编程中通常使用内置的数据类型, 如: byte, int, long, double等;  
+> (2) 当需要使用对象时, Java为每一个内置数据类型提供了对应的包装类, 有: Boolean, Byte, Short, Integer, Long, Character, Float, Double;;  
+> (3) 都是抽象类Number类的子类, Number类属于java.lang包。
+
+2. Math
+> (1) Math类包含了用于执行基本数学运算的属性和方法, 方法都被定义为static形式, 通过Math类可以在主函数里直接调用;  
+> (2) Number & Math 类方法, 如: compareTo(), equals(), toString(), min(), max(), random()等。
+
+3. Character
+> (1) Character类用于对单个字符进行操作;  
+> (2) 常用方法有: isLetter(), isDigit(), isWhitespace(), isLowerCase(), toLowerCase()等。 
+
+4. String
+> 提供字符串操作方法, 如: compareTo(IgnoreCase), concat, contentEquals, indexOf, length等。
 
 ## ~22.09.25
+[代码笔记](src/main/java/LearningNotes0925.java)
 1. Collection [Reference](https://blog.csdn.net/qq_42404261/article/details/104863292)
 > (1) java.util.Collection是一个集合接口, 提供了对集合对象进行基本操作的通用接口方法;  
 > (2) 直接继承接口为List和Set:  
