@@ -1,16 +1,36 @@
 # Learning_Java
 Write down by Lysshpng.
 
-**TODO List**
-- [ ] 编写servlet, filter
+[//]: # (TODO List)
+
+[//]: # (- [ ] 编写servlet, filter)
 
 [//]: # (https://www.runoob.com/servlet/servlet-environment-setup.html)
 
-- [ ] 搭建一个springmvc工程
+[//]: # (- [ ] 搭建一个springmvc工程)
 
 [//]: # (https://blog.csdn.net/wodeID123/article/details/124910315)
 [//]: # (https://www.cnblogs.com/cfas/p/16168634.html)
 [//]: # (https://blog.csdn.net/friggly/article/details/123888590)
+
+## ～22.10.20 线程
+1. 进程与线程的区别?!  
+> 
+
+2. 线程的创建方式有哪些?!  
+   (1) Extend thread  
+   (2) Implement runable  
+   (3) Implement callable  
+
+3. Threadlocal的理解作用应用场景（空间换时间）  
+
+4. Lock,synchronized,juc  
+
+5. Jdk自带线程池有哪些？如何自定义？线程池的执行步骤是咋样的?!  
+
+6. Thread.sleep和object.wait 方法有啥区别?!  
+
+
 
 ## ～22.10.13
 [代码笔记](src/main/java/LearningNotes1013.java)
