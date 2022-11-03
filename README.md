@@ -1,6 +1,8 @@
 # Learning_Java
 Write down by Lysshpng.
 
+## 持续学习更新中..
+
 [//]: # (TODO List)
 
 [//]: # (- [ ] 编写servlet, filter)
@@ -13,24 +15,67 @@ Write down by Lysshpng.
 [//]: # (https://www.cnblogs.com/cfas/p/16168634.html)
 [//]: # (https://blog.csdn.net/friggly/article/details/123888590)
 
-## ～22.10.20 线程
-1. 进程与线程的区别?!  
+## ~22.11.06 设计模式、设计原则、UML图
+1. 设计模式 [Ref 1](https://blog.csdn.net/wt5264/article/details/114024599), [Ref 2](https://blog.csdn.net/qq_52211542/article/details/125648622)
+> (1) 采用设计模式是为了更简单方便地对成果的设计和代码体系结构进行复用; 共有23类, 可以分为三种类型:  
+> (2) 创建型模式, 指的是用于创建对象的模式, 解耦对象实例化的过程, 为创建类和对象提供指南, 包括: 单例模式、工厂方法'、抽象工厂'、建造者'和原型模式;  
+> (2) 结构型模式, 处理类和对象的组合问题, 为让类和对象形成更大的体系结构提供知道, 包括: 适配器模式、桥接'、组合'、装饰'、外观'、享元'以及代理模式;  
+> (3) 行为型模式, 描述类或对象的交互以及职责分配的问题, 包括: 访问者模式、模板'、策略'、状态'、观察者'、备忘录'、中介者'、迭代器'、解释器'、命令'以及责任链模式。
+
+2. 六大设计原则 
+[Ref 1](https://blog.csdn.net/ttxs99989/article/details/81844135), 
+[Ref 2](https://blog.csdn.net/weixin_46053707/article/details/121923552), 
+[Ref 3](https://zhuanlan.zhihu.com/p/110130347),
+[Ref 4(系列漫画)](https://mp.weixin.qq.com/s/yDiIZW3TQENLOFmzYH7NOw)
+> (1) **单一职责原则**(Single Responsibility Principle, SRP)是实现高内聚低耦合的指导方针, 简单来说就是一个类只做一件事, 对这个类来说应该只有一个能引起它变化的原因;  
+> (2) **开闭原则**(Open Closed Principle, OCP)指的是对拓展开放、对修改关闭, 关键是需要对系统进行抽象化设计;  
+> (3) **里氏替换原则**(Liskov Substitution Principle, LSP), 所有引用父类的地方必须能透明地使用其子类的对象, 子类必须完全实现父类的方法, 子类可以有自己的属性和方法(举个栗子, 我喜欢动物, 那我一定也喜欢猫, 但反过来不成立);  
+> &emsp;&emsp;里氏替换原则是实现开闭原则的重要方式之一, 要求在程序中尽量使用父类对对象进行定义, 而在运行时再确定其子类类型,用子类对象替换父类对象;  
+> (4) **迪米特法则**(Law of Demeter, LoD), 也叫最少知识原则(Least Knowledge Principle, LKP), Only talk to your immediate friends;  
+> &emsp;&emsp;对象之间应该使用尽可能少的方法关联, 一个类只需要知道另一个要耦合和调用的类的尽可能少的public的方法, 不需要知道其内部如何复杂;  
+> (5) **接口隔离原则**(Interface Segregation Principle, ISP), 使用多个专门的接口比使用一个复杂的总接口好, 每个接口承担一种相对独立的角色/职责(SRP), 接口的使用方仅需要知道其功能和这个功能的方法即可;  
+> (6) **依赖倒置原则**(Dependence Inversion Principle, DIP), 高层模块不依赖低层', 高低层模块都应该又依赖于抽象, 抽象(抽象类/接口)不依赖细节(实现类)而细节依赖于抽象, 总结成一句话就是"面向接口编程";  
+> (7) 六大原则的首字母联合起来是SOLID, 代表着将这六大原则使用好可以建立稳定、鲁棒的设计。
+
+3. UML图 [Reference](https://blog.csdn.net/qq_35423190/article/details/125069834)
+> 泛化(父类子类)、实现(接口和类)、关联、聚合(部分可以离开整体单独存在)、组合(部分不能离开整体单独存在)、依赖;  
+> 类名、类属性、类操作(方法)、<<interface>>;  
+> public - +, private - -, protected - #;
+
+4. 
 > 
 
-2. 线程的创建方式有哪些?!  
-   (1) Extend thread  
-   (2) Implement runable  
-   (3) Implement callable  
+## ～22.10.23 线程相关
+[代码笔记](src/main/java/LearningNotes1030.java)
+1. 进程与线程的区别?!  
+> (1) 进程(Process) 是一个程序的运行活动,由程序、数据和进程控制块PCB三部分组成, 有唯一的进程编号PID, 进程是操作系统**资源分配和调度**的基本单元;  
+> (2) 线程(Thread) 是进程中的实际运作单位, 是操作系统进行**程序执行和任务调度**的最小单位; 线程没有独立的资源，与其他线程共享进程内的资源;  
+> (3) 进程具有独立性(唯一的PID)、并发性、异步性和动态性的特点; 进程有五态：创建、就绪、运行、阻塞、退出, 其中阻塞态的进程不能直接切换到运行态的;  
+> (4) 线程比进程更轻量, 优点是线程的创建开销更少、更易于调度。
 
-3. Threadlocal的理解作用应用场景（空间换时间）  
+2. 线程的创建方式有哪些?![Ref 1](https://blog.csdn.net/weixin_43954951/article/details/126396865) [Ref 2](https://www.cnblogs.com/xujf/p/14574185.html)
+> (1) 继承Thread类, 重写Thread的run方法;  
+> (2) 实现Runnable接口, 实现Runnable的抽象run方法; 这个方法可以用一个Runnable对象创建多个线程(即多线程共享这个对象、数据);  
+> (3) 实现Callable接口, 实现Callable的抽象call方法; Callable的call方法可以有返回值, 可以抛出异常, 支持泛型;  
+> (4) 使用线程池, 线程池是一种线程使用模式, 因为线程过多会带来调度开销, 进而影响缓存局部性和整体性能; 而线程池维护着多个线程, 对线程统一管理, 达到复用的效果;  
+> (5) JDK自带四种基本线程池: 可缓存线程池newCachedThreadPool, 定长线程池newFixedThreadPool, 定时及周期性执行的定长线程池newScheduledThreadPool和单线程化的线程池newSingleThreadPool;  
+> (6) 线程的创建看起来有四种方式，但本质上只有new Thread对象一种。
 
-4. Lock,synchronized,juc  
+3. ThreadLocal的理解作用应用场景(空间换时间) [Reference](https://blog.csdn.net/u010445301/article/details/111322569)
+> (1) ThreadLocal, 线程变量, 指ThreadLocal中填充的变量属于当前线程, 对其他线程来说是隔离的, 用于解决多线程并发时访问共享变量的问题;  
+> (2) ThreadLocal用于修饰共享变量, 使每个线程单独拥有一份共享变量, 实现同时访问而互不干扰; 当线程修改了共享变量后由JMM管理控制写回主存;  
+> (3) ThreadLocal适用于两种场景: 每个线程要求有自己单独的实例, 类似于线程内的全局变量(避免了传参)。
 
-5. Jdk自带线程池有哪些？如何自定义？线程池的执行步骤是咋样的?!  
+4. Lock, synchronized, JUC [Reference](https://blog.csdn.net/beginnerdzz/article/details/127076748)
+> (1) JUC指的是java.util.concurrent包; Lock锁是java.util.concurrent.lock类;  
+> (2) Lock是一个类(无参构造非公平锁, 有参是公平锁), Lock.lock()上锁, Lock.unlock()解锁, 两行代码之间是加锁的内容;  
+> (3) synchronized是方法修饰关键字, 表示对该方法上synchronized锁(即方法内的数据均上了同步锁); 
+> (4) synchronized会自动释放锁, Lock必须要手动加锁和手动释放锁!!可能会导致死锁!!  
+> (4) Lock(适合锁大量的同步)和synchronized(适合锁少量的代码同步)都是解决数据同步的问题, 而ThreadLocal是实现多线程之间的数据隔离。
 
-6. Thread.sleep和object.wait 方法有啥区别?!  
-
-
+5. Thread.sleep和object.wait有啥区别?!
+> (1) Thread.sleep()是线程休眠, 是当前线程调用此方法, 但不释放对象锁, sleep结束后线程自动苏醒并进入就绪态;  
+> (2) object.wait(), 由当前线程调用对象的wait方法, 线程则释放对象锁进入等待队列, 需要notify()/notifyAll()或timeout唤醒。
 
 ## ～22.10.13
 [代码笔记](src/main/java/LearningNotes1013.java)
@@ -70,8 +115,8 @@ Write down by Lysshpng.
 1. Collection [Reference](https://blog.csdn.net/qq_42404261/article/details/104863292)
 > (1) java.util.Collection是一个集合接口, 提供了对集合对象进行基本操作的通用接口方法;  
 > (2) 直接继承接口为List和Set:  
-> &emsp; &emsp; a) List, 有序可重复, 维护特定的顺序, 能够精确的控制每个元素插入的位置, 可使用索引访问List中的元素; 常用实现类有**ArrayList，LinkedList，Vector**;  
-> &emsp; &emsp; b) Set, 无序不可重复, 只能通过游标来取值; 常用有实现类**HashSet**和子接口**SortedSet**。
+> &emsp;&emsp;a) List, 有序可重复, 维护特定的顺序, 能够精确的控制每个元素插入的位置, 可使用索引访问List中的元素; 常用实现类有**ArrayList，LinkedList，Vector**;  
+> &emsp;&emsp;b) Set, 无序不可重复, 只能通过游标来取值; 常用有实现类**HashSet**和子接口**SortedSet**。
 
 1.1 ArrayList vs LinkedList vs Vector
 > (1) ArrayList底层是数组; 适合查询(O(1))，不适合频繁的随机增删元素; 非线程安全;  
@@ -117,9 +162,9 @@ Write down by Lysshpng.
 2. 动态代理 [Reference](https://blog.csdn.net/q982151756/article/details/80586894)
 > (1) 动态代理其实是Java中的一个方法, 这个方法可以实现: 动态创建一组指定的接口的实现对象(在运行时，创建实现了指定的一组接口的对象);  
 > (2) 动态代理(Proxy)类中创建代理对象的方法的三个参数:  
-> &emsp; &emsp; ClassLoader loader: 方法需要动态生成一个类, 这个类实现了A和B两个接口; 这个类也需要加载到方法区中, 所以我们需要一个ClassLoader来加载该类;  
-> &emsp; &emsp; Class<?>[] interfaces: 需要代理对象实现的数组;  
-> &emsp; &emsp; InvocationHandler h: 调用处理器; 代理对象实现的所有接口中的方法, 内容都是调用InvocationHandler中的invoke()方法, 代理对象方法的返回值其实就是invoke方法的返回值;  
+> &emsp;&emsp;ClassLoader loader: 方法需要动态生成一个类, 这个类实现了A和B两个接口; 这个类也需要加载到方法区中, 所以我们需要一个ClassLoader来加载该类;  
+> &emsp; &emsp;Class<?>[] interfaces: 需要代理对象实现的数组;  
+> &emsp;&emsp;InvocationHandler h: 调用处理器; 代理对象实现的所有接口中的方法, 内容都是调用InvocationHandler中的invoke()方法, 代理对象方法的返回值其实就是invoke方法的返回值;  
 > (3) 示例代码阅读。
 
 ## ~22.09.03
@@ -130,21 +175,21 @@ Write down by Lysshpng.
 
 3. Spring入门
 > (1) Spring是一个JavaEE轻量级的一站式的免费开源开发框架 --  
-> &emsp;&emsp; JavaEE： 就是用于开发企业级（B/S）应用的技术;  
-> &emsp;&emsp; 轻量级：使用最少代码启动框架，然后根据需求选择需要使用的模块;   
-> &emsp;&emsp; 一站式：提供了表示层，服务层，持久层的所有支持。  
+> &emsp;&emsp;JavaEE： 就是用于开发企业级（B/S）应用的技术;  
+> &emsp;&emsp;轻量级：使用最少代码启动框架，然后根据需求选择需要使用的模块;   
+> &emsp;&emsp;一站式：提供了表示层，服务层，持久层的所有支持。  
 > (2) Spring 的核心功能: [Ref1](https://zhuanlan.zhihu.com/p/98967126),
 >                       [Ref2](https://www.cnblogs.com/lx-meteor/p/16503544.html), 
 >                       [Ref3](https://blog.csdn.net/a321123b/article/details/123591796)    
-> &emsp;&emsp; **IOC** (Inversion of Control, 控制反转)  
-> &emsp;&emsp;&emsp;&emsp; 简单理解为一种设计模式, 将实例化对象的控制权由手动的new变成了Spring框架通过反射机制实现实例化;  
-> &emsp;&emsp;&emsp;&emsp; Spring实现了不用new、使用类或接口就可以获得对象，以实现可插拔程序;  
-> &emsp;&emsp; **DI** (Dependency Injection, 依赖注入)  
-> &emsp;&emsp;&emsp;&emsp; 程序运行的需要可以称之为依赖, 给对象的属性赋值即为依赖注入;  
-> &emsp;&emsp;&emsp;&emsp; Spring通过反射技术实例化了对象，属性无需手动赋值，通过spring的配置文件或Spring提供的注解可以实现直接注入属性;  
-> &emsp;&emsp; **AOP** (Aspect Oriented Programming, 面向切面编程)  
-> &emsp;&emsp;&emsp;&emsp; 在Spring中, 切面编程指的就是在程序运行某个方法的时候, 不修改原始执行代码逻辑, 由程序动态地执行某些额外的功能, 对原有的方法做增强, 这就叫做面向切面编程。  
-> &emsp;&emsp;&emsp;&emsp; 那个被监测的执行方法, 称呼为切入点。  
+> &emsp;&emsp;**IOC** (Inversion of Control, 控制反转)  
+> &emsp;&emsp;&emsp;&emsp;简单理解为一种设计模式, 将实例化对象的控制权由手动的new变成了Spring框架通过反射机制实现实例化;  
+> &emsp;&emsp;&emsp;&emsp;Spring实现了不用new、使用类或接口就可以获得对象，以实现可插拔程序;  
+> &emsp;&emsp;**DI** (Dependency Injection, 依赖注入)  
+> &emsp;&emsp;&emsp;&emsp;程序运行的需要可以称之为依赖, 给对象的属性赋值即为依赖注入;  
+> &emsp;&emsp;&emsp;&emsp;Spring通过反射技术实例化了对象，属性无需手动赋值，通过spring的配置文件或Spring提供的注解可以实现直接注入属性;  
+> &emsp;&emsp;**AOP** (Aspect Oriented Programming, 面向切面编程)  
+> &emsp;&emsp;&emsp;&emsp;在Spring中, 切面编程指的就是在程序运行某个方法的时候, 不修改原始执行代码逻辑, 由程序动态地执行某些额外的功能, 对原有的方法做增强, 这就叫做面向切面编程。  
+> &emsp;&emsp;&emsp;&emsp;那个被监测的执行方法, 称呼为切入点。  
 > (3) Spring的优势:  
 > &emsp;&emsp; 轻量化, 简化项目开发, 面向切面编程, 面向接口编程, 测试方便, 方便集成第三方框架。
 
@@ -152,18 +197,18 @@ Write down by Lysshpng.
 > (1) Java Web是用Java技术来解决相关Web互联网领域的技术栈, 是通过Java语言编写的、可以通过浏览器访问的、基于B/S结构的程序的总称;  
 > (2) Web包括：Web服务端和Web客户端两部分; Java在客户端的应用有Java Applet; 在服务器端的应用有Servlet、JSP、第三方框架等等;  
 > (3) Web资源, 指放在Internet网上供外界访问的文件或程序; 根据呈现的效果不同，Web资源可分为静态和动态两种:   
-> &emsp; 静态Web资源: 内容是静态的，不同的人在不同的时间来访问时都是相同的内容;  
-> &emsp; 动态Web资源: 内容是由程序生成的、动态变化的, 不同的人在不同的时间访问的内容很可能是不同的。
+> &emsp;静态Web资源: 内容是静态的，不同的人在不同的时间来访问时都是相同的内容;  
+> &emsp;动态Web资源: 内容是由程序生成的、动态变化的, 不同的人在不同的时间访问的内容很可能是不同的。
 
 5. 编写servlet, filter, 理解作用以及看到什么效果
 > (1) Servlet [Reference](https://www.runoob.com/servlet/servlet-intro.html)  
-> &emsp; Java Servlet是运行在Web服务器或应用服务器上的程序, 是作为来自Web浏览器或其他HTTP客户端的请求和HTTP服务器上的数据库或应用程序之间的中间层;  
-> &emsp; Servlet执行的主要任务：读取客户端(浏览器)发送的显式数据 → 读取客户端(浏览器)发送的隐式HTTP请求数据 → 
+> &emsp;Java Servlet是运行在Web服务器或应用服务器上的程序, 是作为来自Web浏览器或其他HTTP客户端的请求和HTTP服务器上的数据库或应用程序之间的中间层;  
+> &emsp;Servlet执行的主要任务：读取客户端(浏览器)发送的显式数据 → 读取客户端(浏览器)发送的隐式HTTP请求数据 → 
 >                               处理数据并生成结果 → 发送显式的数据(即文档)到客户端(浏览器) → 发送隐式的HTTP响应到客户端(浏览器);  
 > (2) Filter [Reference](https://blog.csdn.net/m0_62430017/article/details/124427188)  
-> &emsp; Filter过滤器是实现了javax.servlet.Filter接口的类, 它的基本功能是对Servlet容器调用Servlet的过程进行拦截,
+> &emsp;Filter过滤器是实现了javax.servlet.Filter接口的类, 它的基本功能是对Servlet容器调用Servlet的过程进行拦截,
 >       对Servlet容器传给Web资源的request对象和response对象进行检查和修改;  
-> &emsp; Filter的生命周期分为3个阶段: 初始化阶段, 拦截和过滤阶段和销毁阶段,
+> &emsp;Filter的生命周期分为3个阶段: 初始化阶段, 拦截和过滤阶段和销毁阶段,
 >       分别对应了由Servlet容器来管理的init(), doFilter()以及destroy()三个方法;  
 > (3) 编码实现 --**TODO**--
 
@@ -181,11 +226,11 @@ Write down by Lysshpng.
 Q: Java创建对象的方式有哪些?!
 > Java创建对象的四种方式：[Ref1](https://www.cnblogs.com/yanchuanbin/p/14742892.html),
 >                       [Ref2](https://blog.csdn.net/weixin_48882711/article/details/124072469)  
-> &emsp; (1) new创建新对象：通过new对应的类的构造器来创建，这种方式是Java中最通用的;  
-> &emsp; (2) 通过反射机制;  
-> &emsp; (3) 采用clone机制：必须提前实现cloneable接口并实现clone方法;  
-> &emsp; (4) 反序列化：对Class必须要实现Serializable接口;  
-> &emsp; 其中clone和反序列化方法是没有调用构造方法的。
+> &emsp;(1) new创建新对象：通过new对应的类的构造器来创建，这种方式是Java中最通用的;  
+> &emsp;(2) 通过反射机制;  
+> &emsp;(3) 采用clone机制：必须提前实现cloneable接口并实现clone方法;  
+> &emsp;(4) 反序列化：对Class必须要实现Serializable接口;  
+> &emsp;其中clone和反序列化方法是没有调用构造方法的。
 
 Q: 什么是构造方法(耦合)?!
 > 构造方法也叫做构造器，是一种特殊的方法，用于创建实例（即对象）时进行初始化操作。  
@@ -194,10 +239,10 @@ Q: 什么是构造方法(耦合)?!
 Q: 怎么统一在调用对象的方法之前、之后做一些自定义的事，比如日志打印、事务管理(aop,动态代理)?!
 > (1) 定义一个方法/框架，将需要统一在调用方法之前和之后执行的自定义的内容定义好，中间的部分可以动态地调整为调用的方法。  
 > (2) 使用装饰模式：[Reference](https://baike.baidu.com/item/%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/10158540)  
-> &emsp; (a) 装饰模式是在不必改变原类文件和使用继承的情况下，动态地扩展一个对象的功能;  
-> &emsp; (b) 装饰对象包含一个真实对象的引用(reference);   
-> &emsp; (c) 装饰对象可以在转发这些请求以前或以后增加一些附加功能。  
-> &emsp; 这样就确保了在运行时，不用修改给定对象的结构就可以在外部增加附加的功能。
+> &emsp;(a) 装饰模式是在不必改变原类文件和使用继承的情况下，动态地扩展一个对象的功能;  
+> &emsp;(b) 装饰对象包含一个真实对象的引用(reference);   
+> &emsp;(c) 装饰对象可以在转发这些请求以前或以后增加一些附加功能。  
+> &emsp;这样就确保了在运行时，不用修改给定对象的结构就可以在外部增加附加的功能。
 
 ## 22.08.20 小任务
 Task: 写一个方法，入参数有两个，一个是数字最大值，一个是操作类型(如5，\*)，返回值要是5\*4\*3\*2\*1，操作类型这个参数可以为[\+, \-, \*, \/]  
