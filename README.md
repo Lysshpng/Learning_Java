@@ -2,7 +2,7 @@
 Write down by Lysshpng.
 
 ## 持续学习更新中..
-
+ 
 [//]: # (TODO List)
 
 [//]: # (- [ ] 编写servlet, filter)
@@ -19,7 +19,30 @@ Write down by Lysshpng.
 - [ ] 红黑树
 - [ ] 配置xml
 
-## ~22.11.09 设计模式、设计原则、UML图
+# 目录(时间轴)
+* [~22.11.09 设计模式、设计原则、UML图](#221109) ([创建型模式](#create), [结构型模式](#stru), [行为型模式](#ss))
+* [～22.10.23 线程相关](#221023)
+* [～22.10.13](#221013)
+* [~22.09.30](#220930)
+* [~22.09.25](#220925)
+* [~22.09.18 浅学一下Spring](#220918)
+* [~22.09.11 浅学一下Spring](#220911)
+* [~22.09.03](#220903)
+* [~22.08.27 Java对象](#220827)
+* [22.08.20 小任务](#220820)
+* [~22.08.19 学习《Java编程思想》](#220819)
+* [~22.08.15 git相关知识](#220815)
+* [~22.08.12 1st Java program](#220812)
+* [22.08.11 环境配置](#220811)
+
+
+
+---
+## <a id=""> ~ </a>
+
+
+---
+## <a id="221109"> ~22.11.09 设计模式、设计原则、UML图 </a> 
 1. 设计模式 [Ref 1](https://blog.csdn.net/wt5264/article/details/114024599), [Ref 2](https://blog.csdn.net/qq_52211542/article/details/125648622)
 > (1) 采用设计模式是为了更简单方便地对成果的设计和代码体系结构进行复用; 共有23类, 可以分为三种类型:  
 > (2) 创建型模式, 指的是用于创建对象的模式, 解耦对象实例化的过程, 为创建类和对象提供指南, 包括: 单例模式、工厂方法'、抽象工厂'、建造者'和原型模式;  
@@ -46,89 +69,89 @@ Write down by Lysshpng.
 > 类名、类属性、类操作(方法)、<\<interface>>;  
 > public - +, private - -, protected - #;
 
-4. [创建型模式代码笔记](src/main/java/LearningNotes1109_1.java)  
-创建型模式_单例模式 [Reference](https://blog.csdn.net/GJ_007/article/details/123874405)
+4. [创建型模式代码笔记](src/main/java/LearningNotes1109_1.java)  <a id="create"> </a>
+- 创建型模式_单例模式 [Reference](https://blog.csdn.net/GJ_007/article/details/123874405)
 > (1) Singleton, 一个类只能有一个实例并且由单例类自行创建, 提供一个全局的访问点;  
 > (2) 一般地, 普通类的构造方法是public, 所以外部类可以new多个实例; 为了实现唯一实例, 单例类将构造方法设为private, 在类内定义一个private static的实例, 并向外提供一个public static的方法获取该实例;  
 > (3) 懒汉式: 只有在第一次调用getInstance方法时才创建单例; 饿汉式: 在类创建的同时就实例化共系统使用。
 
-创建型模式_工厂方法 [Ref 1](https://baijiahao.baidu.com/s?id=1730951464404518976&wfr=spider&for=pc), [Ref 2](https://blog.csdn.net/threelifeadv/article/details/107736738)
+- 创建型模式_工厂方法 [Ref 1](https://baijiahao.baidu.com/s?id=1730951464404518976&wfr=spider&for=pc), [Ref 2](https://blog.csdn.net/threelifeadv/article/details/107736738)
 > (1) Factory Method, 定义一个创建对象的接口，让子类决定实例化哪个类;  
 > (2) 工厂模式一般包含四个角色: 抽象工厂类, 一个具体工厂类(生产多种具体产品), 抽象产品类(所有具体工厂的具体产品的父类), 具体产品类。
 
-创建型模式_抽象工厂 [Reference](https://zhuanlan.zhihu.com/p/443482691)
+- 创建型模式_抽象工厂 [Reference](https://zhuanlan.zhihu.com/p/443482691)
 > (1) Abstract Factory, "工厂的工厂", 提供一个创建一系列相关或相互依赖对象的接口，而无须指定它们具体的类; 
 > (2) 也是由抽象工厂、具体工厂、抽象产品和具体产品等4个要素构成; 但是抽象工厂中有多个createProduct方法用于对应具体工厂生产的具体产品, 每个具体工厂可以产生多种综合产品, 每个具体工厂生产的具体产品可以划分为同等级;  
 > (3) 思考：那这样是不是要每个工厂都能生产等数量种产品才行？！而且如果想加一个种类的具体产品, 所有的具体工厂都要生产它？！
 
-创建型模式_建造者模式 [Ref 1](https://zhuanlan.zhihu.com/p/371248124), [Ref 2](https://blog.csdn.net/Liuxiangming1314/article/details/124339614)
+- 创建型模式_建造者模式 [Ref 1](https://zhuanlan.zhihu.com/p/371248124), [Ref 2](https://blog.csdn.net/Liuxiangming1314/article/details/124339614)
 > (1) Builder, 将一个复杂对象的构建过程与它的实现表示分离, 使得同样的构建过程可以创建不同的表示; 适用于创建对象需要很多步骤, 但是步骤的顺序不一定固定的场景;  
 > (2) 有4个角色: Product产品类, 即多个模块组成的复杂对象, 由具体Builder创建各个模块; 抽象Builder类, 规范化各个模板的建造; 具体Builder类, 根据不同的需求完成具体产品各个模块的创建; Director调用类, 确定具体产品需要有哪些模块, 一般可以不用;  
 > (3) 思考：如果一个产品突然想加一个模块, 那么产品类和对应的具体Builder类都要修改了。
 
-创建型模式_原型模式 [Ref 1](https://baijiahao.baidu.com/s?id=1730786729971289111), [Ref 2](https://zhuanlan.zhihu.com/p/361427058), [Ref 3](https://blog.csdn.net/weixin_56219549/article/details/122743954)
+- 创建型模式_原型模式 [Ref 1](https://baijiahao.baidu.com/s?id=1730786729971289111), [Ref 2](https://zhuanlan.zhihu.com/p/361427058), [Ref 3](https://blog.csdn.net/weixin_56219549/article/details/122743954)
 > (1) Prototype, 直接通过复制现有的实例、再修改为生产需要的实例来创建新的实例;  
 > (2) 两个角色: 抽象原型类, 声明了clone方法; 具体原型类, 实现或重写clone方法; 一般来说Object类是所有类的父类且Object类里就有clone方法, 所以具体的原型类可以直接实现Cloneable接口来达到目的;  
 > (3) 原型模式有两种实现方式: 浅拷贝 -- 两个对象的引用类型的变量都指向同一个地址, 你变我也变, 实现方式: 默认的clone方法; 深拷贝 -- 完全复制到新对象, 引用类型的变量就重新申请空间, 两个对象互不影响, 实现方式: 重写clone方法实现或继承Cloneable接口并实现clone方法(推荐);
 
-5. [结构型模式代码笔记](src/main/java/LearningNotes1109_2.java)  
-结构型模式_适配器模式 [Ref 1](https://www.cnblogs.com/mingmingcome/p/9810731.html), [Ref 2](https://blog.csdn.net/qq_38785977/article/details/125581096)
+5. [结构型模式代码笔记](src/main/java/LearningNotes1109_2.java) <a id="stru"> </a>
+- 结构型模式_适配器模式 [Ref 1](https://www.cnblogs.com/mingmingcome/p/9810731.html), [Ref 2](https://blog.csdn.net/qq_38785977/article/details/125581096)
 > (1) Adapter, 将一个类的接口转换成客户希望的另外一个接口, 使原本由于接口不兼容而不能一起工作的类可以一起工作;  
 > (2) 三个角色：客户端需要一个target(目标)接口, 但是不能直接重用已经存在的adaptee(适配者)类, 因为它的接口和target接口不一致, 所以需要adapter(适配器)将adaptee转换为target接口; 前提是target接口和已存在的适配者adaptee类所做的事情是相同或相似, 只是接口不同且都不易修改;  
 > (3) 适配器模式有三类: 类适配器, 在编译时实现target接口及继承Adaptee类; 对象适配器, 将多个Adaptee抽象成一个通用Adaptee然后再只用一个Adapter适配, 而不是每个Adaptee都要写一个Adapter; 缺省适配器(默认适配器/接口适配器), 。
 
-结构型模式_桥接模式 [Reference](https://www.cnblogs.com/WindSun/p/10260547.html)
+- 结构型模式_桥接模式 [Reference](https://www.cnblogs.com/WindSun/p/10260547.html)
 > (1) Bridge, 将抽象部分与其实现部分分离, 使它们都可以独立地变化; 举个栗子: 分为形状和颜色两个维度独立变化;  
 > (2) 用组合关系代替继承关系来实现, 使一个类不必拥有所有的状态和行为; 将多个会变化的维度拆分开独立变化, 避免类的爆炸增长, 将m*n个实现类转换为m+n个实现类;  
 > (3) 涉及到的角色: 抽象类(形状) -- 内部持有一个实现类对象, 扩充抽象类(具体形状), 实现类接口(颜色), 具体实现类(具体颜色); 又叫“柄体”模式或接口模式。
 
-结构型模式_组合模式 [Reference](https://zhuanlan.zhihu.com/p/444784138)
+- 结构型模式_组合模式 [Reference](https://zhuanlan.zhihu.com/p/444784138)
 > (1) Composite, 将对象组合成树形结构以表示“部分-整体“的层次结构, 树里面包含了组合以及个别的对象; 能把相同的操作应用在组合和个别对象上, 即可以忽略对象组合和个别对象之问的差别;  
 > (2) 三部分组成: Component, 抽象类Leaf, 树枝Composite;  
 > (3) 组合模式有两种方式: 透明方式 -- Component声明了所有子类的全部方法, Client无需区分叶子和树枝对象, 因而树对Client是透明的; 安全方式 -- 只在树枝中有对子对象的管理; 
 
-结构型模式_装饰模式 [Reference](https://blog.csdn.net/lena7/article/details/116354866)
+- 结构型模式_装饰模式 [Reference](https://blog.csdn.net/lena7/article/details/116354866)
 > (1) Decorator, 动态地为一个对象增加新的功能, 而不是创建一个继承子类;  
 > (2) 角色: Component, 具体对象ConcreteComponent, 装饰器Decorator -- 内部持有一个Component对象, 具体装饰器ConcreteDecorator -- 具体的要给对象添加的功能;
 
-结构型模式_代理模式 [Ref 1](https://blog.csdn.net/weixin_43953283/article/details/125783249), [Ref 2](https://zhuanlan.zhihu.com/p/102420731)
+- 结构型模式_代理模式 [Ref 1](https://blog.csdn.net/weixin_43953283/article/details/125783249), [Ref 2](https://zhuanlan.zhihu.com/p/102420731)
 > (1) Proxy, 为其他对象提供一个代理以控制对这个对象的访问(举个栗子: 房屋中介内部持有一个房源并代出租);  
 > (2) 与适配器的区别: 适配器是要修改所考虑对象的接口, 代理模式不能改变; 与装饰模式的区别: 装饰器是为了增加功能, 代理是为了对现有功能加以控制;  
 > (3) 代理模式有动态代理(反射机制)和静态代理两种。
 
-结构型模式_享元模式 [Reference](https://blog.csdn.net/Liuxiangming1314/article/details/124424100)
+- 结构型模式_享元模式 [Reference](https://blog.csdn.net/Liuxiangming1314/article/details/124424100)
 > (1) Flyweight, 运用共享技术有效地支持大量细粒度的相似的对象, 提供了减少对象数量(重用)从而改善应用所需的对象结构的方式;  
 > (2) 角色: 抽象享元, 具体享元, 非享元, 享元工厂 -- 负责创建和管理享元角色。
 
-结构型模式_外观模式 [Reference](https://zhuanlan.zhihu.com/p/421998619)
+- 结构型模式_外观模式 [Reference](https://zhuanlan.zhihu.com/p/421998619)
 > (1) Facade, 为子系统中的一组接口提供一个一致的界面, Facade模式定义了一个高层接口, 这个接口使得子系统更加容易使用;  
 > (2) 有三部分: 一个繁杂的子系统, 一个外观模式, 一个客户。
 
-6. 行为型模式代码笔记
-行为型模式_
+6. 行为型模式代码笔记 <a id="ss"> </a>
+- 行为型模式_
 
-行为型模式_
+- 行为型模式_
 
-行为型模式_
+- 行为型模式_
 
-行为型模式_
+- 行为型模式_
 
-行为型模式_
+- 行为型模式_
 
-行为型模式_
+- 行为型模式_
 
-行为型模式_
+- 行为型模式_
 
-行为型模式_
+- 行为型模式_
 
-行为型模式_
+- 行为型模式_
 
-行为型模式_
+- 行为型模式_
 
-行为型模式_
+- 行为型模式_
 
-
-## ～22.10.23 线程相关
+---
+## <a id="221023"> ～22.10.23 线程相关 </a>
 [代码笔记](src/main/java/LearningNotes1030.java)
 1. 进程与线程的区别?!  
 > (1) 进程(Process) 是一个程序的运行活动,由程序、数据和进程控制块PCB三部分组成, 有唯一的进程编号PID, 进程是操作系统**资源分配和调度**的基本单元;  
@@ -160,7 +183,8 @@ Write down by Lysshpng.
 > (1) Thread.sleep()是线程休眠, 是当前线程调用此方法, 但不释放对象锁, sleep结束后线程自动苏醒并进入就绪态;  
 > (2) object.wait(), 由当前线程调用对象的wait方法, 线程则释放对象锁进入等待队列, 需要notify()/notifyAll()或timeout唤醒。
 
-## ～22.10.13
+---
+## <a id="221013"> ～22.10.13 </a>
 [代码笔记](src/main/java/LearningNotes1013.java)
 1. Iterator
 > (1) Iterator, 迭代器, 是一种用于访问集合的方法, 可用于迭代ArrayList, HashSet等集合;  
@@ -175,7 +199,8 @@ Write down by Lysshpng.
 > (5) throws关键字用来声明一个异常, 放在方法签名的尾部; 也可以在方法内部使用throw抛出异常;  
 > (6) finally用来创建在try后面执行的代码, 无论是否发生异常，finally的代码总会被执行, 因此可以运行清理类型等收尾善后性质的语句。
 
-## ~22.09.30
+---
+## <a id="220930"> ~22.09.30 </a>
 [代码笔记](src/main/java/LearningNotes0930.java)
 1. Number
 > (1) 一般地, 在编程中通常使用内置的数据类型, 如: byte, int, long, double等;  
@@ -193,7 +218,8 @@ Write down by Lysshpng.
 4. String
 > 提供字符串操作方法, 如: compareTo(IgnoreCase), concat, contentEquals, indexOf, length等。
 
-## ~22.09.25
+---
+## <a id="220925"> ~22.09.25 </a>
 [代码笔记](src/main/java/LearningNotes0925.java)
 1. Collection [Reference](https://blog.csdn.net/qq_42404261/article/details/104863292)
 > (1) java.util.Collection是一个集合接口, 提供了对集合对象进行基本操作的通用接口方法;  
@@ -220,7 +246,8 @@ Write down by Lysshpng.
 > (2) TreeMap, 把保存的记录根据key排序(默认升序); 当用Iterator遍历TreeMap, 得到的记录是排过序的; TreeMap不允许key的值为null;  
 > (3) Hashtable, 与HashMap类似, 但key和value均不允许为Null; 支持线程的同步，即任一时刻只有一个线程能写Hashtable, 因此也导致Hashtable在写入时会比较慢。
 
-## ~22.09.18
+---
+## <a id="220918"> ~22.09.18 浅学一下Spring </a>
 1. IOC [Reference](https://blog.csdn.net/ivan820819/article/details/79744797)
 > (1) IOC(Inversion of Control, 控制反转), 借助于"第三方"(IOC容器)实现具有依赖关系的对象之间的解耦;  
 > (2) 原本对象A想要操作对象B是要自己创建B, 现在是由IOC容器在A需要的时候给个B它; 所以原本A要主动创建B, 现在变成被动得到一个B, so控制反转了;  
@@ -234,7 +261,8 @@ Write down by Lysshpng.
 > (4) Spring中提供了两种IoC容器: BeanFactory, ApplicationContext; 其中BeanFactory是ApplicationContext的父类, 因此ApplicationContext的功能更强大;  
 > (5) 需要通过某种方法告诉IOC容器关于对象依赖的信息, 容器才能合理的创造出对象, 有四种方式: 文本文件, XML文件, 代码, 注解。
 
-## ~22.09.11
+---
+## <a id="220911"> ~22.09.11 浅学一下Spring </a>
 1. Spring AOP [Reference](https://blog.csdn.net/q982151756/article/details/80513340)
 > (1) AOP(Aspect Oriented Programming), 面向切面编程;  
 > (2) 编程中, 对象与对象之间, 方法与方法之间, 模块与模块之间都是一个个切面;  
@@ -250,7 +278,8 @@ Write down by Lysshpng.
 > &emsp;&emsp;InvocationHandler h: 调用处理器; 代理对象实现的所有接口中的方法, 内容都是调用InvocationHandler中的invoke()方法, 代理对象方法的返回值其实就是invoke方法的返回值;  
 > (3) 示例代码阅读。
 
-## ~22.09.03
+---
+## <a id="220903"> ~22.09.03 </a>
 1. Java的继承以及继承类的构造方法关系 [代码笔记](src/main/java/LearningNotes0831.java)
 
 2. Java的三大特性：[Reference](https://blog.csdn.net/slw213106/article/details/121696908)
@@ -303,7 +332,8 @@ Write down by Lysshpng.
 > (1) SpringBoot提供了一种快速使用Spring的方式, 目的是为了简化Spring项目的搭设和开发过程、提高开发效率, 本质是Spring + 其他框架;  
 > (2) 四大特性: 自动配置、起步依赖、Actuator、命令行界面。
 
-## ~22.08.27
+---
+## <a id="220827"> ~22.08.27 Java对象 </a>
 [代码笔记](src/main/java/LearningNotes0827.java)  
 
 Q: Java创建对象的方式有哪些?!
@@ -327,17 +357,20 @@ Q: 怎么统一在调用对象的方法之前、之后做一些自定义的事�
 > &emsp;(c) 装饰对象可以在转发这些请求以前或以后增加一些附加功能。  
 > &emsp;这样就确保了在运行时，不用修改给定对象的结构就可以在外部增加附加的功能。
 
-## 22.08.20 小任务
+---
+## <a id="220820"> 22.08.20 小任务 </a>
 Task: 写一个方法，入参数有两个，一个是数字最大值，一个是操作类型(如5，\*)，返回值要是5\*4\*3\*2\*1，操作类型这个参数可以为[\+, \-, \*, \/]  
 已完成，详见[代码文件](src/main/java/LearningNotes0820.java)
 
-## ~22.08.19 学习《Java编程思想》
+---
+## <a id="220819"> ~22.08.19 学习《Java编程思想》 </a>
 > [学习笔记](src/main/java/LearningNotes0819.java)
 > 1. ~《Java编程思想》第4章
 > 2. 网上的java基础教程
 > 3. if-else, switch-case, for, while, logical operation
 
-## 22.08.15 git相关知识
+---
+## <a id="220815"> ~22.08.15 git相关知识 </a>
 README.md文件的格式规范 [Reference](https://blog.csdn.net/qq_37493425/article/details/102556009)
 
 .gitignore文件
@@ -357,12 +390,14 @@ git commit规范 [Reference](https://www.jianshu.com/p/851ec9cd1709)
 |   chore       |   构建过程或辅助工具的变动    |
 |   revert      |   回滚到上个版本 |
 
-## 22.08.12 1st Java program
+---
+## <a id="220812"> ~22.08.12 1st Java program </a>
 "Hello World!" - done
 
 Push to GitHub - done
 
-## 22.08.11 环境配置
+---
+## <a id="220811"> 22.08.11 环境配置 </a>
 JDK:
 > [安装参考教程](https://blog.csdn.net/dkm123456/article/details/121172392)
 
