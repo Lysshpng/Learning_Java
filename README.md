@@ -15,7 +15,11 @@ Write down by Lysshpng.
 [//]: # (https://www.cnblogs.com/cfas/p/16168634.html)
 [//]: # (https://blog.csdn.net/friggly/article/details/123888590)
 
-## ~22.11.06 设计模式、设计原则、UML图
+# (TODO List)
+- [ ] 红黑树
+- [ ] 配置xml
+
+## ~22.11.09 设计模式、设计原则、UML图
 1. 设计模式 [Ref 1](https://blog.csdn.net/wt5264/article/details/114024599), [Ref 2](https://blog.csdn.net/qq_52211542/article/details/125648622)
 > (1) 采用设计模式是为了更简单方便地对成果的设计和代码体系结构进行复用; 共有23类, 可以分为三种类型:  
 > (2) 创建型模式, 指的是用于创建对象的模式, 解耦对象实例化的过程, 为创建类和对象提供指南, 包括: 单例模式、工厂方法'、抽象工厂'、建造者'和原型模式;  
@@ -38,12 +42,92 @@ Write down by Lysshpng.
 > (7) 六大原则的首字母联合起来是SOLID, 代表着将这六大原则使用好可以建立稳定、鲁棒的设计。
 
 3. UML图 [Reference](https://blog.csdn.net/qq_35423190/article/details/125069834)
-> 泛化(父类子类)、实现(接口和类)、关联、聚合(部分可以离开整体单独存在)、组合(部分不能离开整体单独存在)、依赖;  
-> 类名、类属性、类操作(方法)、<<interface>>;  
+> 泛化(继承)、实现(接口和类)、关联、聚合(部分可以离开整体单独存在)、组合(部分不能离开整体单独存在)、依赖;  
+> 类名、类属性、类操作(方法)、<\<interface>>;  
 > public - +, private - -, protected - #;
 
-4. 
-> 
+4. [创建型模式代码笔记](src/main/java/LearningNotes1109_1.java)  
+创建型模式_单例模式 [Reference](https://blog.csdn.net/GJ_007/article/details/123874405)
+> (1) Singleton, 一个类只能有一个实例并且由单例类自行创建, 提供一个全局的访问点;  
+> (2) 一般地, 普通类的构造方法是public, 所以外部类可以new多个实例; 为了实现唯一实例, 单例类将构造方法设为private, 在类内定义一个private static的实例, 并向外提供一个public static的方法获取该实例;  
+> (3) 懒汉式: 只有在第一次调用getInstance方法时才创建单例; 饿汉式: 在类创建的同时就实例化共系统使用。
+
+创建型模式_工厂方法 [Ref 1](https://baijiahao.baidu.com/s?id=1730951464404518976&wfr=spider&for=pc), [Ref 2](https://blog.csdn.net/threelifeadv/article/details/107736738)
+> (1) Factory Method, 定义一个创建对象的接口，让子类决定实例化哪个类;  
+> (2) 工厂模式一般包含四个角色: 抽象工厂类, 一个具体工厂类(生产多种具体产品), 抽象产品类(所有具体工厂的具体产品的父类), 具体产品类。
+
+创建型模式_抽象工厂 [Reference](https://zhuanlan.zhihu.com/p/443482691)
+> (1) Abstract Factory, "工厂的工厂", 提供一个创建一系列相关或相互依赖对象的接口，而无须指定它们具体的类; 
+> (2) 也是由抽象工厂、具体工厂、抽象产品和具体产品等4个要素构成; 但是抽象工厂中有多个createProduct方法用于对应具体工厂生产的具体产品, 每个具体工厂可以产生多种综合产品, 每个具体工厂生产的具体产品可以划分为同等级;  
+> (3) 思考：那这样是不是要每个工厂都能生产等数量种产品才行？！而且如果想加一个种类的具体产品, 所有的具体工厂都要生产它？！
+
+创建型模式_建造者模式 [Ref 1](https://zhuanlan.zhihu.com/p/371248124), [Ref 2](https://blog.csdn.net/Liuxiangming1314/article/details/124339614)
+> (1) Builder, 将一个复杂对象的构建过程与它的实现表示分离, 使得同样的构建过程可以创建不同的表示; 适用于创建对象需要很多步骤, 但是步骤的顺序不一定固定的场景;  
+> (2) 有4个角色: Product产品类, 即多个模块组成的复杂对象, 由具体Builder创建各个模块; 抽象Builder类, 规范化各个模板的建造; 具体Builder类, 根据不同的需求完成具体产品各个模块的创建; Director调用类, 确定具体产品需要有哪些模块, 一般可以不用;  
+> (3) 思考：如果一个产品突然想加一个模块, 那么产品类和对应的具体Builder类都要修改了。
+
+创建型模式_原型模式 [Ref 1](https://baijiahao.baidu.com/s?id=1730786729971289111), [Ref 2](https://zhuanlan.zhihu.com/p/361427058), [Ref 3](https://blog.csdn.net/weixin_56219549/article/details/122743954)
+> (1) Prototype, 直接通过复制现有的实例、再修改为生产需要的实例来创建新的实例;  
+> (2) 两个角色: 抽象原型类, 声明了clone方法; 具体原型类, 实现或重写clone方法; 一般来说Object类是所有类的父类且Object类里就有clone方法, 所以具体的原型类可以直接实现Cloneable接口来达到目的;  
+> (3) 原型模式有两种实现方式: 浅拷贝 -- 两个对象的引用类型的变量都指向同一个地址, 你变我也变, 实现方式: 默认的clone方法; 深拷贝 -- 完全复制到新对象, 引用类型的变量就重新申请空间, 两个对象互不影响, 实现方式: 重写clone方法实现或继承Cloneable接口并实现clone方法(推荐);
+
+5. [结构型模式代码笔记](src/main/java/LearningNotes1109_2.java)  
+结构型模式_适配器模式 [Ref 1](https://www.cnblogs.com/mingmingcome/p/9810731.html), [Ref 2](https://blog.csdn.net/qq_38785977/article/details/125581096)
+> (1) Adapter, 将一个类的接口转换成客户希望的另外一个接口, 使原本由于接口不兼容而不能一起工作的类可以一起工作;  
+> (2) 三个角色：客户端需要一个target(目标)接口, 但是不能直接重用已经存在的adaptee(适配者)类, 因为它的接口和target接口不一致, 所以需要adapter(适配器)将adaptee转换为target接口; 前提是target接口和已存在的适配者adaptee类所做的事情是相同或相似, 只是接口不同且都不易修改;  
+> (3) 适配器模式有三类: 类适配器, 在编译时实现target接口及继承Adaptee类; 对象适配器, 将多个Adaptee抽象成一个通用Adaptee然后再只用一个Adapter适配, 而不是每个Adaptee都要写一个Adapter; 缺省适配器(默认适配器/接口适配器), 。
+
+结构型模式_桥接模式 [Reference](https://www.cnblogs.com/WindSun/p/10260547.html)
+> (1) Bridge, 将抽象部分与其实现部分分离, 使它们都可以独立地变化; 举个栗子: 分为形状和颜色两个维度独立变化;  
+> (2) 用组合关系代替继承关系来实现, 使一个类不必拥有所有的状态和行为; 将多个会变化的维度拆分开独立变化, 避免类的爆炸增长, 将m*n个实现类转换为m+n个实现类;  
+> (3) 涉及到的角色: 抽象类(形状) -- 内部持有一个实现类对象, 扩充抽象类(具体形状), 实现类接口(颜色), 具体实现类(具体颜色); 又叫“柄体”模式或接口模式。
+
+结构型模式_组合模式 [Reference](https://zhuanlan.zhihu.com/p/444784138)
+> (1) Composite, 将对象组合成树形结构以表示“部分-整体“的层次结构, 树里面包含了组合以及个别的对象; 能把相同的操作应用在组合和个别对象上, 即可以忽略对象组合和个别对象之问的差别;  
+> (2) 三部分组成: Component, 抽象类Leaf, 树枝Composite;  
+> (3) 组合模式有两种方式: 透明方式 -- Component声明了所有子类的全部方法, Client无需区分叶子和树枝对象, 因而树对Client是透明的; 安全方式 -- 只在树枝中有对子对象的管理; 
+
+结构型模式_装饰模式 [Reference](https://blog.csdn.net/lena7/article/details/116354866)
+> (1) Decorator, 动态地为一个对象增加新的功能, 而不是创建一个继承子类;  
+> (2) 角色: Component, 具体对象ConcreteComponent, 装饰器Decorator -- 内部持有一个Component对象, 具体装饰器ConcreteDecorator -- 具体的要给对象添加的功能;
+
+结构型模式_代理模式 [Ref 1](https://blog.csdn.net/weixin_43953283/article/details/125783249), [Ref 2](https://zhuanlan.zhihu.com/p/102420731)
+> (1) Proxy, 为其他对象提供一个代理以控制对这个对象的访问(举个栗子: 房屋中介内部持有一个房源并代出租);  
+> (2) 与适配器的区别: 适配器是要修改所考虑对象的接口, 代理模式不能改变; 与装饰模式的区别: 装饰器是为了增加功能, 代理是为了对现有功能加以控制;  
+> (3) 代理模式有动态代理(反射机制)和静态代理两种。
+
+结构型模式_享元模式 [Reference](https://blog.csdn.net/Liuxiangming1314/article/details/124424100)
+> (1) Flyweight, 运用共享技术有效地支持大量细粒度的相似的对象, 提供了减少对象数量(重用)从而改善应用所需的对象结构的方式;  
+> (2) 角色: 抽象享元, 具体享元, 非享元, 享元工厂 -- 负责创建和管理享元角色。
+
+结构型模式_外观模式
+> (1) Facade, 为子系统中的一组接口提供一个一致的界面, Facade模式定义了一个高层接口, 这个接口使得子系统更加容易使用;  
+> (2) 有三部分: 一个繁杂的子系统, 一个外观模式, 一个客户; 
+> (3) 
+
+6. 行为型模式代码笔记
+行为型模式_
+
+行为型模式_
+
+行为型模式_
+
+行为型模式_
+
+行为型模式_
+
+行为型模式_
+
+行为型模式_
+
+行为型模式_
+
+行为型模式_
+
+行为型模式_
+
+行为型模式_
+
 
 ## ～22.10.23 线程相关
 [代码笔记](src/main/java/LearningNotes1030.java)
