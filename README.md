@@ -20,7 +20,7 @@ Write down by Lysshpng.
 - [ ] 配置xml
 
 # 目录(时间轴)
-* [~22.11.09 设计模式、设计原则、UML图](#221109) ([创建型模式](#create), [结构型模式](#stru), [行为型模式](#ss))
+* [~22.11.10 设计模式、设计原则、UML图](#221110) ([创建型模式](#Creational), [结构型模式](#Structural ), [行为型模式](#Behavioral))
 * [～22.10.23 线程相关](#221023)
 * [～22.10.13](#221013)
 * [~22.09.30](#220930)
@@ -42,7 +42,7 @@ Write down by Lysshpng.
 
 
 ---
-## <a id="221109"> ~22.11.09 设计模式、设计原则、UML图 </a> 
+## <a id="221110"> ~22.11.10 设计模式、设计原则、UML图 </a> 
 1. 设计模式 [Ref 1](https://blog.csdn.net/wt5264/article/details/114024599), [Ref 2](https://blog.csdn.net/qq_52211542/article/details/125648622)
 > (1) 采用设计模式是为了更简单方便地对成果的设计和代码体系结构进行复用; 共有23类, 可以分为三种类型:  
 > (2) 创建型模式, 指的是用于创建对象的模式, 解耦对象实例化的过程, 为创建类和对象提供指南, 包括: 单例模式、工厂方法'、抽象工厂'、建造者'和原型模式;  
@@ -69,7 +69,7 @@ Write down by Lysshpng.
 > 类名、类属性、类操作(方法)、<\<interface>>;  
 > public - +, private - -, protected - #;
 
-4. [创建型模式代码笔记](src/main/java/LearningNotes1109_1.java)  <a id="create"> </a>
+4. [创建型模式代码笔记](src/main/java/LearningNotes1109_1.java)  <a id="Creational"> </a>
 - 创建型模式_单例模式 [Reference](https://blog.csdn.net/GJ_007/article/details/123874405)
 > (1) Singleton, 一个类只能有一个实例并且由单例类自行创建, 提供一个全局的访问点;  
 > (2) 一般地, 普通类的构造方法是public, 所以外部类可以new多个实例; 为了实现唯一实例, 单例类将构造方法设为private, 在类内定义一个private static的实例, 并向外提供一个public static的方法获取该实例;  
@@ -94,7 +94,7 @@ Write down by Lysshpng.
 > (2) 两个角色: 抽象原型类, 声明了clone方法; 具体原型类, 实现或重写clone方法; 一般来说Object类是所有类的父类且Object类里就有clone方法, 所以具体的原型类可以直接实现Cloneable接口来达到目的;  
 > (3) 原型模式有两种实现方式: 浅拷贝 -- 两个对象的引用类型的变量都指向同一个地址, 你变我也变, 实现方式: 默认的clone方法; 深拷贝 -- 完全复制到新对象, 引用类型的变量就重新申请空间, 两个对象互不影响, 实现方式: 重写clone方法实现或继承Cloneable接口并实现clone方法(推荐);
 
-5. [结构型模式代码笔记](src/main/java/LearningNotes1109_2.java) <a id="stru"> </a>
+5. [结构型模式代码笔记](src/main/java/LearningNotes1109_2.java) <a id="Structural"> </a>
 - 结构型模式_适配器模式 [Ref 1](https://www.cnblogs.com/mingmingcome/p/9810731.html), [Ref 2](https://blog.csdn.net/qq_38785977/article/details/125581096)
 > (1) Adapter, 将一个类的接口转换成客户希望的另外一个接口, 使原本由于接口不兼容而不能一起工作的类可以一起工作;  
 > (2) 三个角色：客户端需要一个target(目标)接口, 但是不能直接重用已经存在的adaptee(适配者)类, 因为它的接口和target接口不一致, 所以需要adapter(适配器)将adaptee转换为target接口; 前提是target接口和已存在的适配者adaptee类所做的事情是相同或相似, 只是接口不同且都不易修改;  
@@ -127,7 +127,7 @@ Write down by Lysshpng.
 > (1) Facade, 为子系统中的一组接口提供一个一致的界面, Facade模式定义了一个高层接口, 这个接口使得子系统更加容易使用;  
 > (2) 有三部分: 一个繁杂的子系统, 一个外观模式, 一个客户。
 
-6. 行为型模式代码笔记 <a id="ss"> </a>
+6. 行为型模式代码笔记 <a id="Behavioral"> </a>
 - 行为型模式_
 
 - 行为型模式_
